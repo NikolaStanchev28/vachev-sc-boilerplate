@@ -46,10 +46,8 @@ export default class MyDocument extends Document {
           <meta name='google-site-verification' content='i9h7cxFeq-fO93mKRnN8Vkjcem6EvkvVFi' />
         </Head>
         <body>
-          {/* header goes here */}
           <Main />
           <NextScript />
-          {/* footer goes here */}
         </body>
       </Html>
     );

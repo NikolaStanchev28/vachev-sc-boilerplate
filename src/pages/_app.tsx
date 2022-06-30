@@ -18,18 +18,17 @@ function MyApp({ Component, pageProps: { ...pageProps } }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <Head>
-        <title>International esports tournaments at EGO. Compete from anywhere.</title>
-        <meta
-          name='description'
-          content='Instantly compete in free tournaments at EGO Lounge around the world, without the pain of LFG or Matchmaking. Compete against others, for yourself.'
-        />
+        <title>app title goes here</title>
+        <meta name='description' content='app description goes here' />
 
         <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no' />
 
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <GlobalStyles />
+      {/* header goes here */}
       <Component {...pageProps} />
+      {/* footer goes here */}
     </ThemeProvider>
   );
 }
