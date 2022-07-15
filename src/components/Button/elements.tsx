@@ -76,6 +76,7 @@ const buttonStyles: Record<
   `
 };
 
+/* eslint-disable vachev/styled-component-format */
 export const Button = styled(
   forwardRef(
     ({ color, variant, invalid, ...props }: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => (
