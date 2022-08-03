@@ -2,17 +2,17 @@ import { useEffect } from "react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { ThemeProvider } from "styled-components";
-import { theme, GlobalStyles } from "~/styles";
-
+import { theme, GlobalStyles } from "styles";
+import { Header, Footer } from "collections";
 import TagManager from "react-gtm-module";
 
 const tagManagerArgs = {
-  gtmId: "GTM-NZ7RLL3"
+  gtmId: "GTM-XXXXXXX"
 };
 
 function MyApp({ Component, pageProps: { ...pageProps } }: AppProps) {
   useEffect(() => {
-    TagManager.initialize(tagManagerArgs);
+    // TagManager.initialize(tagManagerArgs);
   }, []);
 
   return (
@@ -26,9 +26,9 @@ function MyApp({ Component, pageProps: { ...pageProps } }: AppProps) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <GlobalStyles />
-      {/* header goes here */}
+      <Header />
       <Component {...pageProps} />
-      {/* footer goes here */}
+      <Footer />
     </ThemeProvider>
   );
 }

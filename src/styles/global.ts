@@ -5,10 +5,15 @@ export const GlobalStyles = createGlobalStyle`
     body {
         padding: 0;
         margin: 0;
-        font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-            Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-        background: #191919 ;
+        font-family: 'Crimson Text', serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.8;
+        color: #333;
+        background: #fff;
+        scroll-behavior: smooth;
     }
+
 
     a {
         display: inline-block;
@@ -18,10 +23,10 @@ export const GlobalStyles = createGlobalStyle`
 
     * {
         box-sizing: border-box;
-                
-        &::-webkit-scrollbar {
-        width: 10px;
-        height: 100%;
-        }
     } 
+
+    h1, h2, h3, h4, h5, span, p {
+        margin: 0;
+        padding: 0;
+    }
 `;

@@ -1,20 +1,17 @@
 import * as S from "./elements";
 import { forwardRef, ForwardedRef } from "react";
-
-type HTMLButtonProps = JSX.IntrinsicElements["button"];
+import type { HTMLButtonProps } from "types";
 
 export interface ButtonProps extends HTMLButtonProps {
-  color?: "primary" | "secondary";
-  variant?: "default" | "outlined";
+  variant?: "primary" | "secondary";
   invalid?: boolean;
-  ref?: ForwardedRef<HTMLButtonElement>;
 }
 
 export const Button = forwardRef(
   (
-    { color = "primary", variant = "default", ...props }: ButtonProps,
+    { invalid = false, variant = "primary", ...props }: ButtonProps,
     ref: ForwardedRef<HTMLButtonElement>
   ) => {
-    return <S.Button {...props} color={color} variant={variant} ref={ref} />;
+    return <S.Button {...props} variant={variant} ref={ref} />;
   }
 );

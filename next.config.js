@@ -4,12 +4,7 @@ const nextConfig = {
   experimental: {},
   future: {},
   images: {
-    domains: [
-      "cdn.discordapp.com",
-      "static-cdn.jtvnw.net",
-      "pbs.twimg.com",
-      "firebasestorage.googleapis.com"
-    ]
+    domains: ["https://www.publishersweekly.com"]
   },
   trailingSlash: true
 };

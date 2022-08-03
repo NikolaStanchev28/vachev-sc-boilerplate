@@ -1,23 +1,8 @@
 {
   "compilerOptions": {
     // "target": "ES2017",
-    "lib": ["dom", "es2017"],
+    "lib": ["dom", "es2017", "ESNext"],
     "allowJs": false,
-    "paths": {
-      "~/assets": ["./src/assets"],
-      "~/types": ["./src/types"],
-      "~/components": ["./src/components"],
-      "~/collections": ["./src/collections"],
-      "~/data": ["./src/data"],
-      "~/lib": ["./src/lib"],
-      "~/sections": ["./src/sections"],
-      "~/styles": ["./src/styles"],
-      "~/utils": ["./src/utils"],
-      "~/context": ["./src/context"],
-      "~/server": ["./src/server"],
-      "~/hooks": ["./src/hooks"],
-      "~/middlewares": ["./src/middlewares"]
-    },
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -35,7 +20,7 @@
     "target": "esnext",
     "module": "esnext",
     "jsx": "preserve",
-    "baseUrl": ".",
+    "baseUrl": "src",
     "allowSyntheticDefaultImports": true,
     "removeComments": false,
     "preserveConstEnums": true,
