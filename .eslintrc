@@ -16,7 +16,6 @@
     "plugin:react-hooks/recommended",
     "plugin:styled-components-a11y/recommended",
     "plugin:prettier/recommended",
-    "plugin:react/recommended",
     "plugin:react-hooks/recommended"
   ],
   "plugins": [
