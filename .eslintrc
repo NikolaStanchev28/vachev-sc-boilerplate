@@ -15,7 +15,9 @@
     "plugin:jsx-a11y/recommended",
     "plugin:react-hooks/recommended",
     "plugin:styled-components-a11y/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
   ],
   "plugins": [
     "better-styled-components",
@@ -24,8 +26,7 @@
     "import",
     "jsx-a11y",
     "@typescript-eslint",
-    "prettier",
-    "vachev"
+    "prettier"
   ],
   "parserOptions": {
     "ecmaVersion": 2018, // Allows for the parsing of modern ECMAScript features
@@ -49,7 +50,7 @@
     "react/display-name": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
     // "sort-keys": [1, "asc", { "caseSensitive": true, "natural": false, "minKeys": 2 }],
-    "react-hooks/exhaustive-deps": 0,
+    // "react-hooks/exhaustive-deps": 0,
     "no-case-declarations": 0,
     "jsx-a11y/label-has-for": 0,
     "vachev/styled-component-format": "off",
@@ -57,5 +58,7 @@
     "jsx-a11y/anchor-has-content": "off",
     "jsx-a11y/heading-has-content": "off"
   },
-  "globals": { "React": "writable" }
+  "globals": {
+    "React": "writable"
+  }
 }
