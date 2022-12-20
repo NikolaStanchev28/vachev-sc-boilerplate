@@ -1,8 +1,8 @@
 import { BreakpointsValuesType, minWidth, maxWidth } from "styles";
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 /**
- * @example const { breakpointMatched: isMediumScreenDevice } = useMediaQuery({ type: "max", breakpoint: "M" });
+ * @example const [isMediumScreenDevice] = useMediaQuery({ type: "max", breakpoint: "M" });
  */
 export const useMediaQuery = (query: {
   type: "min" | "max";
@@ -10,16 +10,16 @@ export const useMediaQuery = (query: {
 }) => {
   const [breakpointMatched, setBreakpointMatched] = useState(false);
 
-  const mediaQueryHandler = useCallback((event: MediaQueryListEvent) => {
-    setBreakpointMatched(event.matches);
-  }, []);
-
   const mediaQuery = useMemo(
     () => (query.type === "max" ? maxWidth[query.breakpoint] : minWidth[query.breakpoint]),
     [query]
   );
 
   useEffect(() => {
+    const mediaQueryHandler = (event: MediaQueryListEvent) => {
+      setBreakpointMatched(event.matches);
+    };
+
     if (window.matchMedia(mediaQuery).matches) {
       setBreakpointMatched(true);
     }
@@ -29,7 +29,7 @@ export const useMediaQuery = (query: {
     return () => {
       window.matchMedia(mediaQuery).removeEventListener("change", mediaQueryHandler);
     };
-  }, [mediaQueryHandler, mediaQuery]);
+  }, [mediaQuery]);
 
-  return { breakpointMatched };
+  return [breakpointMatched];
 };
