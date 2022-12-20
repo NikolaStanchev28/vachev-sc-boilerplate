@@ -2,16 +2,13 @@
 // import { useState } from "react";
 // import { SubmitHandler, useForm } from "react-hook-form";
 // import axios, { AxiosError, AxiosResponse } from "axios";
-// import { object, string, InferType } from "yup";
+// import { InferType } from "yup";
 // import { useYupValidationResolver } from "utils";
+// import { helloSchema } from "schemas";
 // import type { HTMLFormProps } from "types";
 // import type { HelloRequest, HelloResponse } from "pages/api/hello";
 
-// export const contactSchema = object({
-//   userName: string().required("The field is required.")
-// });
-
-// export type HelloFormValues = InferType<typeof contactSchema>;
+// export type HelloFormValues = InferType<typeof helloSchema>;
 
 // export interface HelloFormProps extends HTMLFormProps {}
 
@@ -20,7 +17,7 @@
 //   const [successfulSubmit, setSuccessfulSubmit] = useState(false);
 //   const [error, setError] = useState<string | null>(null);
 
-//   const resolver = useYupValidationResolver(contactSchema);
+//   const resolver = useYupValidationResolver(helloSchema);
 //   const form = useForm<HelloFormValues>({
 //     resolver,
 //     defaultValues: {
@@ -30,13 +27,13 @@
 
 //   const { control, handleSubmit } = form;
 
-//   const onSubmit: SubmitHandler<HelloFormValues> = async data => {
+//   const onSubmit: SubmitHandler<HelloFormValues> = async ({ userName }) => {
 //     try {
 //       const response = await axios.post<
 //         HelloResponse,
 //         AxiosResponse<HelloResponse>,
 //         HelloRequest["body"]
-//       >("/api/hello", { name: data.userName });
+//       >("/api/hello", { userName });
 
 //       setSuccessfulSubmit(true);
 //       setMessage(response.data.message);
