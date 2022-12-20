@@ -11,7 +11,7 @@ export interface FormInputProps<T extends FieldValues = any>
   ref?: ForwardedRef<HTMLInputElement>;
 }
 
-export const FormInput: React.FC<FormInputProps> = ({ name, control, label, ...props }) => {
+export const FormInput = ({ name, control, label, ...props }: FormInputProps) => {
   const {
     field: { onChange, onBlur, value, ref },
     fieldState: { invalid, isTouched, isDirty, error },
@@ -26,7 +26,7 @@ export const FormInput: React.FC<FormInputProps> = ({ name, control, label, ...p
   return (
     <S.Container {...props}>
       <S.InputWrapper>
-        {label && <S.Label>{label}</S.Label>}
+        {label && <S.Label htmlFor={name}>{label}</S.Label>}
         <S.Input
           {...props}
           spellCheck={false}
@@ -34,6 +34,7 @@ export const FormInput: React.FC<FormInputProps> = ({ name, control, label, ...p
           onBlur={onBlur}
           value={value}
           name={name}
+          id={name}
           ref={ref}
         />
       </S.InputWrapper>

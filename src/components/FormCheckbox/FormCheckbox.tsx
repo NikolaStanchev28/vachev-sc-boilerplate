@@ -1,18 +1,16 @@
-import { ForwardedRef } from "react";
-import { useController, UseControllerProps, FieldValues } from "react-hook-form";
-import type { KeyOfType, HTMLInputProps } from "types";
-import { getRandomIntInclusive } from "utils";
 import * as S from "./elements";
+import { useController, UseControllerProps, FieldValues } from "react-hook-form";
+import { getRandomIntInclusive } from "utils";
+import type { KeyOfType, HTMLInputProps } from "types";
 
 export interface FormCheckboxProps<T extends FieldValues = any>
   extends Omit<HTMLInputProps, "name" | "defaultValue">,
     Omit<UseControllerProps<T>, "name"> {
   name: KeyOfType<T>;
   label?: string;
-  ref?: ForwardedRef<HTMLInputElement>;
 }
 
-export const FormCheckbox: React.FC<FormCheckboxProps> = ({ name, control, label, ...props }) => {
+export const FormCheckbox = ({ name, control, label, ...props }: FormCheckboxProps) => {
   const {
     field: { onChange, onBlur, value, ref },
     fieldState: { invalid, isTouched, isDirty, error },
@@ -24,23 +22,21 @@ export const FormCheckbox: React.FC<FormCheckboxProps> = ({ name, control, label
     defaultValue: ""
   });
 
-  const pseudoId = name + getRandomIntInclusive(0, 100000); // update to React 18 to use useId hook ?
-
   return (
     <S.Container {...props}>
       <S.InputWrapper>
         <S.Input
           {...props}
-          id={pseudoId}
+          type='checkbox'
           spellCheck={false}
           onChange={onChange}
           onBlur={onBlur}
           value={value}
           name={name}
-          type='checkbox'
+          id={name}
           ref={ref}
         />
-        {label && <S.Label htmlFor={pseudoId}>{label}</S.Label>}
+        {label && <S.Label htmlFor={name}>{label}</S.Label>}
       </S.InputWrapper>
       {error && <S.ErrorText>{error.message}</S.ErrorText>}
     </S.Container>

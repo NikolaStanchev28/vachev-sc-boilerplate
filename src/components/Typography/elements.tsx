@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/heading-has-content */
 import styled from "styled-components";
 import { theme } from "styles";
 import { H1Props, H2Props, H3Props, H4Props, H5Props, ParagraphProps } from ".";

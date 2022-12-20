@@ -37,7 +37,7 @@
     "import/newline-after-import": "warn",
     "import/no-duplicates": "warn",
     "import/order": "off",
-    "prettier/prettier": 2,
+    "prettier/prettier": "off",
     "@typescript-eslint/no-non-null-assertion": 0,
     // "better-styled-components/sort-declarations-alphabetically": 1,
     "@typescript-eslint/explicit-function-return-type": 0,

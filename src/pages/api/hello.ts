@@ -1,8 +1,28 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import type { ApiResponseBase } from "types";
+import nc from "next-connect";
+import { NextApiRequest, NextApiResponse } from "next";
+import { ApiResponseBase } from "types";
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<ApiResponseBase<any>>) {
-  Math.random() > 0.5
-    ? res.status(200).json({ success: true, data: {} })
-    : res.status(400).json({ success: false, message: "error" });
+export interface HelloRequest extends NextApiRequest {
+  body: { name: string };
 }
+
+export interface HelloResponse {
+  message: `Hello ${string}!`;
+}
+
+const handler = nc<HelloRequest, NextApiResponse<ApiResponseBase<HelloResponse>>>({
+  onError: (err, req, res, next) => {
+    console.log(err.message);
+
+    res.status(err.statusCode || 500).json({ error: err.message });
+  },
+  onNoMatch: (req, res) => {
+    res.status(404).end("Page not found");
+  }
+}).post(async (req, res) => {
+  const { name } = req.body;
+
+  return res.status(200).json({ message: `Hello ${name}!` });
+});
+
+export default handler;

@@ -9,7 +9,7 @@ export const InputWrapper = styled("div")`
   width: 100%;
 `;
 
-export const Label = styled("p")`
+export const Label = styled("label")`
   color: ${({ theme }) => theme.colors.black};
   white-space: nowrap;
   font-family: "Crimson Text", Arial, sans-serif;

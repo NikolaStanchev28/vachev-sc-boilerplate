@@ -1,4 +1,3 @@
-import { ForwardedRef } from "react";
 import { useController, UseControllerProps, FieldValues } from "react-hook-form";
 import type { KeyOfType, HTMLTextAreaProps } from "types";
 import * as S from "./elements";
@@ -8,10 +7,9 @@ export interface FormTextAreaProps<T extends FieldValues = any>
     Omit<UseControllerProps<T>, "name"> {
   name: KeyOfType<T>;
   label?: string;
-  ref?: ForwardedRef<HTMLTextAreaElement>;
 }
 
-export const FormTextArea: React.FC<FormTextAreaProps> = ({ name, control, label, ...props }) => {
+export const FormTextArea = ({ name, control, label, ...props }: FormTextAreaProps) => {
   const {
     field: { onChange, onBlur, value, ref },
     fieldState: { invalid, isTouched, isDirty, error },
@@ -26,7 +24,7 @@ export const FormTextArea: React.FC<FormTextAreaProps> = ({ name, control, label
   return (
     <S.Container>
       <S.InputWrapper>
-        {label && <S.Label>{label}</S.Label>}
+        {label && <S.Label htmlFor={name}>{label}</S.Label>}
         <S.TextArea
           {...props}
           spellCheck={false}
@@ -34,6 +32,7 @@ export const FormTextArea: React.FC<FormTextAreaProps> = ({ name, control, label
           onBlur={onBlur}
           value={value}
           name={name}
+          id={name}
           ref={ref}
         />
       </S.InputWrapper>

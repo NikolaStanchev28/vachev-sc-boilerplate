@@ -1,4 +1,3 @@
-// /* eslint-disable react/display-name */
 // import styled, { css } from "styled-components";
 // import {
 //   Button as _Button,
@@ -8,9 +7,9 @@
 //   FormTextAreaProps
 // } from "components";
 // import { theme } from "styles";
-// import { ContactFormProps, ContactFormValues } from "./ContactForm";
+// import { HelloFormProps, HelloFormValues } from "./HelloForm";
 
-// export const Form = styled("form")<ContactFormProps>`
+// export const Form = styled("form")<HelloFormProps>`
 //   display: flex;
 //   flex-direction: column;
 //   padding: 18px 40px;
@@ -31,11 +30,11 @@
 //   }
 // `;
 
-// export const FormInput = styled(_FormInput)<FormInputProps<ContactFormValues>>`
+// export const FormInput = styled(_FormInput)<FormInputProps<HelloFormValues>>`
 //   margin-bottom: 0.5em;
 // `;
 
-// export const FormTextArea = styled(_FormTextArea)<FormTextAreaProps<ContactFormValues>>``;
+// export const FormTextArea = styled(_FormTextArea)<FormTextAreaProps<HelloFormValues>>``;
 
 // export const HeaderText = styled("span")`
 //   font-family: "Montserrat";
@@ -86,4 +85,5 @@
 //   font-weight: 400;
 //   line-height: 1.8;
 // `;
+
 export {};

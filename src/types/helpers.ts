@@ -1,4 +1,3 @@
-// to fix unexpected behavior of 'keyof', see https://github.com/microsoft/TypeScript/issues/23724
 type KeyTypes<T> = {
   [K in keyof T]-?: K extends string
     ? string
@@ -9,6 +8,10 @@ type KeyTypes<T> = {
     : never;
 }[keyof T];
 
+/**
+ * Fix unexpected behavior of Typescript's `keyof` operator
+ * @see https://github.com/microsoft/TypeScript/issues/23724
+ */
 export type KeyOfType<T, KeyType extends string | number | symbol = KeyTypes<T>> = Extract<
   keyof T,
   KeyType

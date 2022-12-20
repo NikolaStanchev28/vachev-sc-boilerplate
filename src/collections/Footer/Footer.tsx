@@ -1,11 +1,8 @@
-import { RefObject } from "react";
-import { HTMLFooterProps } from "types";
 import * as S from "./elements";
+import type { HTMLFooterProps } from "types";
 
-export interface FooterProps extends HTMLFooterProps {
-  ref?: RefObject<HTMLDivElement>;
-}
+export interface FooterProps extends HTMLFooterProps {}
 
-export const Footer: React.FC<FooterProps> = ({ ...props }) => {
+export const Footer = ({ ...props }: FooterProps) => {
   return <S.Footer {...props}>footer</S.Footer>;
 };
