@@ -1,5 +1,5 @@
 import { StartIcon } from "assets";
-import { HelloForm } from "collections";
+// import { HelloForm } from "collections";
 import { NextPage } from "next";
 import {} from "sections";
 
@@ -8,7 +8,7 @@ const Home: NextPage = () => {
     <main>
       <h1>The Index Page</h1>
       <StartIcon />
-      <HelloForm />
+      {/* <HelloForm /> */}
     </main>
   );
 };
