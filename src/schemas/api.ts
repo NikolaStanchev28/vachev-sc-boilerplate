@@ -1,8 +1,12 @@
-import { HelloRequest } from "pages/api/hello";
-import { object, SchemaOf, string } from "yup";
+import { z } from "zod";
 
-export const helloSchema: SchemaOf<HelloRequest["body"]> = object()
-  .defined()
-  .shape({
-    userName: string().required("User Name field is required.")
-  });
+export const helloSchema = z.object({
+  userName: z
+    .string({
+      invalid_type_error: "userName must be of type string.",
+      required_error: "userName is required."
+    })
+    .nonempty("userName field cannot be empty.")
+});
+
+export type HelloRequestBody = z.infer<typeof helloSchema>;

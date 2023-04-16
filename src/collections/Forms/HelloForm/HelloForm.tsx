@@ -1,14 +1,10 @@
 import * as S from "./elements";
 import { useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
 import axios, { AxiosError, AxiosResponse } from "axios";
-import { InferType } from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { helloSchema } from "schemas";
-import type { ApiResponseBase, HTMLFormProps } from "types";
-import type { HelloRequest, HelloResponse } from "pages/api/hello";
-
-export type HelloFormValues = InferType<typeof helloSchema>;
+import { HelloRequestBody, helloSchema } from "schemas";
+import type { HTMLFormProps } from "types";
+import type { HelloResponse } from "pages/api/hello";
+import { useZodForm } from "hooks";
 
 export interface HelloFormProps extends HTMLFormProps {}
 
@@ -17,22 +13,14 @@ export const HelloForm = ({ ...props }: HelloFormProps) => {
   const [successfulSubmit, setSuccessfulSubmit] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const resolver = yupResolver(helloSchema);
-  const form = useForm<HelloFormValues>({
-    resolver,
-    defaultValues: {
-      userName: ""
-    }
-  });
+  const { control, handleSubmit } = useZodForm(helloSchema);
 
-  const { control, handleSubmit } = form;
-
-  const onSubmit: SubmitHandler<HelloFormValues> = async ({ userName }) => {
+  const submitHandler = handleSubmit(async ({ userName }) => {
     try {
       const response = await axios.post<
         HelloResponse,
         AxiosResponse<HelloResponse>,
-        HelloRequest["body"]
+        HelloRequestBody
       >("/api/hello", { userName });
 
       setSuccessfulSubmit(true);
@@ -42,10 +30,10 @@ export const HelloForm = ({ ...props }: HelloFormProps) => {
       setError(axiosError.response?.data.error || error.message);
       console.warn(axiosError.response?.data.error || error.message);
     }
-  };
+  });
 
   return (
-    <S.Form {...props} onSubmit={handleSubmit(onSubmit)}>
+    <S.Form {...props} onSubmit={submitHandler}>
       {successfulSubmit ? (
         <S.Title>{message}</S.Title>
       ) : (

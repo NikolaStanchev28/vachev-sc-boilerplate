@@ -7,7 +7,8 @@ import {
   FormTextAreaProps
 } from "components";
 import { theme } from "styles";
-import { HelloFormProps, HelloFormValues } from "./HelloForm";
+import { HelloFormProps } from "./HelloForm";
+import { HelloRequestBody } from "schemas";
 
 export const Form = styled("form")<HelloFormProps>`
   display: flex;
@@ -30,11 +31,11 @@ export const Form = styled("form")<HelloFormProps>`
   }
 `;
 
-export const FormInput = styled(_FormInput)<FormInputProps<HelloFormValues>>`
+export const FormInput = styled(_FormInput)<FormInputProps<HelloRequestBody>>`
   margin-bottom: 0.5em;
 `;
 
-export const FormTextArea = styled(_FormTextArea)<FormTextAreaProps<HelloFormValues>>``;
+export const FormTextArea = styled(_FormTextArea)<FormTextAreaProps<HelloRequestBody>>``;
 
 export const HeaderText = styled("span")`
   font-family: "Montserrat";
