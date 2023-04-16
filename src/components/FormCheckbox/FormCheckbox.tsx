@@ -19,25 +19,25 @@ export const FormCheckbox = ({ name, control, label, ...props }: FormCheckboxPro
     name,
     control,
     rules: { required: true },
-    defaultValue: ""
+    defaultValue: false
   });
 
   return (
-    <S.Container {...props}>
-      <S.InputWrapper>
-        <S.Input
-          {...props}
-          type='checkbox'
-          spellCheck={false}
-          onChange={onChange}
-          onBlur={onBlur}
-          value={value}
-          name={name}
-          id={name}
-          ref={ref}
-        />
-        {label && <S.Label htmlFor={name}>{label}</S.Label>}
-      </S.InputWrapper>
+    <S.Container>
+      <S.Input
+        {...props}
+        type='checkbox'
+        spellCheck={false}
+        onChange={onChange}
+        onBlur={onBlur}
+        value={value}
+        checked={value}
+        name={name}
+        id={name}
+        ref={ref}
+      />
+      {label && <S.Label htmlFor={name}>{label}</S.Label>}
+
       {error && <S.ErrorText>{error.message}</S.ErrorText>}
     </S.Container>
   );

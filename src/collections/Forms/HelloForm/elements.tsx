@@ -4,7 +4,9 @@ import {
   FormInput as _FormInput,
   FormInputProps,
   FormTextArea as _FormTextArea,
-  FormTextAreaProps
+  FormTextAreaProps,
+  FormCheckbox as _FormCheckbox,
+  FormCheckboxProps
 } from "components";
 import { theme } from "styles";
 import { HelloFormProps } from "./HelloForm";
@@ -36,6 +38,8 @@ export const FormInput = styled(_FormInput)<FormInputProps<HelloRequest["body"]>
 `;
 
 export const FormTextArea = styled(_FormTextArea)<FormTextAreaProps<HelloRequest["body"]>>``;
+
+export const FormCheckbox = styled(_FormCheckbox)<FormCheckboxProps<HelloRequest["body"]>>``;
 
 export const HeaderText = styled("span")`
   font-family: "Montserrat";

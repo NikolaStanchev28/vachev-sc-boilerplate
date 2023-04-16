@@ -13,15 +13,15 @@ export const HelloForm = ({ ...props }: HelloFormProps) => {
   const [successfulSubmit, setSuccessfulSubmit] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const { control, handleSubmit } = useZodForm(helloSchema);
+  const { control, handleSubmit } = useZodForm(helloSchema, { agreeToTOS: true });
 
-  const submitHandler = handleSubmit(async ({ userName }) => {
+  const submitHandler = handleSubmit(async ({ userName, agreeToTOS }) => {
     try {
       const response = await axios.post<
         HelloResponse,
         AxiosResponse<HelloResponse>,
         HelloRequest["body"]
-      >("/api/hello", { userName });
+      >("/api/hello", { userName, agreeToTOS });
 
       setSuccessfulSubmit(true);
       setMessage(response.data.message);
@@ -47,6 +47,12 @@ export const HelloForm = ({ ...props }: HelloFormProps) => {
           </S.Description>
 
           <S.FormInput label={"Your Name (required)"} control={control} name='userName' />
+
+          <S.FormCheckbox
+            label={"I agree to the Terms of Service"}
+            control={control}
+            name='agreeToTOS'
+          />
 
           <S.Actions>
             <S.Button variant='primary' type='submit'>
