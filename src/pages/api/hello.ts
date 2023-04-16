@@ -1,11 +1,11 @@
 import nc from "next-connect";
 import { NextApiRequest, NextApiResponse } from "next";
-import { HelloRequestBody, helloSchema } from "schemas";
+import { helloSchema } from "schemas";
 import { ApiResponseBase } from "types";
-import { ZodError } from "zod";
+import { z, ZodError } from "zod";
 
 export interface HelloRequest extends NextApiRequest {
-  body: HelloRequestBody;
+  body: z.infer<typeof helloSchema>;
 }
 
 export interface HelloResponse {

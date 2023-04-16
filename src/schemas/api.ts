@@ -8,5 +8,3 @@ export const helloSchema = z.object({
     })
     .nonempty("userName field cannot be empty.")
 });
-
-export type HelloRequestBody = z.infer<typeof helloSchema>;

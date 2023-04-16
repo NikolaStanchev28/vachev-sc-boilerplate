@@ -8,7 +8,7 @@ import {
 } from "components";
 import { theme } from "styles";
 import { HelloFormProps } from "./HelloForm";
-import { HelloRequestBody } from "schemas";
+import { HelloRequest } from "pages/api/hello";
 
 export const Form = styled("form")<HelloFormProps>`
   display: flex;
@@ -31,11 +31,11 @@ export const Form = styled("form")<HelloFormProps>`
   }
 `;
 
-export const FormInput = styled(_FormInput)<FormInputProps<HelloRequestBody>>`
+export const FormInput = styled(_FormInput)<FormInputProps<HelloRequest["body"]>>`
   margin-bottom: 0.5em;
 `;
 
-export const FormTextArea = styled(_FormTextArea)<FormTextAreaProps<HelloRequestBody>>``;
+export const FormTextArea = styled(_FormTextArea)<FormTextAreaProps<HelloRequest["body"]>>``;
 
 export const HeaderText = styled("span")`
   font-family: "Montserrat";

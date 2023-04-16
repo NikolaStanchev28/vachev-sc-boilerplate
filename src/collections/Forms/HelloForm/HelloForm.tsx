@@ -1,9 +1,9 @@
 import * as S from "./elements";
 import { useState } from "react";
 import axios, { AxiosError, AxiosResponse } from "axios";
-import { HelloRequestBody, helloSchema } from "schemas";
+import { helloSchema } from "schemas";
 import type { HTMLFormProps } from "types";
-import type { HelloResponse } from "pages/api/hello";
+import type { HelloRequest, HelloResponse } from "pages/api/hello";
 import { useZodForm } from "hooks";
 
 export interface HelloFormProps extends HTMLFormProps {}
@@ -13,14 +13,14 @@ export const HelloForm = ({ ...props }: HelloFormProps) => {
   const [successfulSubmit, setSuccessfulSubmit] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const { control, handleSubmit } = useZodForm(helloSchema); //
+  const { control, handleSubmit } = useZodForm(helloSchema);
 
   const submitHandler = handleSubmit(async ({ userName }) => {
     try {
       const response = await axios.post<
         HelloResponse,
         AxiosResponse<HelloResponse>,
-        HelloRequestBody
+        HelloRequest["body"]
       >("/api/hello", { userName });
 
       setSuccessfulSubmit(true);
