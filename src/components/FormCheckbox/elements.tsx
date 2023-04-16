@@ -3,7 +3,12 @@ import type { FormCheckboxProps } from "./FormCheckbox";
 
 export const Container = styled("div")`
   display: flex;
+  flex-direction: column;
   width: 100%;
+`;
+
+export const InputWrapper = styled("div")`
+  display: flex;
   align-items: center;
 `;
 
@@ -14,7 +19,7 @@ export const Label = styled("label")`
   font-size: 18px;
   font-weight: 400;
   line-height: 1.8;
-  margin-left: 5px;
+  margin-left: 0.5em;
 `;
 
 export const ErrorText = styled("p")`
@@ -31,4 +36,6 @@ export const ErrorText = styled("p")`
 export const Input = styled("input")<FormCheckboxProps>`
   width: 20px;
   height: 20px;
+  margin: 0;
+  padding: 0;
 `;
