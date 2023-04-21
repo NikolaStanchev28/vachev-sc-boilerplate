@@ -1,4 +1,3 @@
-import { ForwardedRef } from "react";
 import { useController, UseControllerProps, FieldValues } from "react-hook-form";
 import type { KeyOfType } from "types";
 import * as S from "./elements";
@@ -8,7 +7,6 @@ export interface FormInputProps<T extends FieldValues = any>
     Omit<UseControllerProps<T>, "name"> {
   name: KeyOfType<T>;
   label?: string;
-  ref?: ForwardedRef<HTMLInputElement>;
 }
 
 export const FormInput = ({ name, control, label, ...props }: FormInputProps) => {
