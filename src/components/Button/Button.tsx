@@ -1,6 +1,5 @@
 import * as S from "./elements";
 import { forwardRef } from "react";
-import type { HTMLButtonProps } from "types";
 
 export interface ButtonProps extends HTMLButtonProps {
   variant?: "primary" | "secondary";

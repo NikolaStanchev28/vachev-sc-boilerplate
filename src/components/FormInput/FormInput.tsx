@@ -1,6 +1,6 @@
 import { ForwardedRef } from "react";
 import { useController, UseControllerProps, FieldValues } from "react-hook-form";
-import type { KeyOfType, HTMLInputProps } from "types";
+import type { KeyOfType } from "types";
 import * as S from "./elements";
 
 export interface FormInputProps<T extends FieldValues = any>

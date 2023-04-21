@@ -2,36 +2,38 @@ import { PropsWithChildren, PropsWithRef } from "react";
 
 type PropsWithRefAndChildren<T> = PropsWithChildren<PropsWithRef<T>>;
 
-export type HTMLMainProps = PropsWithRefAndChildren<JSX.IntrinsicElements["main"]>;
+declare global {
+  type HTMLMainProps = PropsWithRefAndChildren<JSX.IntrinsicElements["main"]>;
 
-export type HTMLDivProps = PropsWithRefAndChildren<PropsWithRef<JSX.IntrinsicElements["div"]>>;
+  type HTMLDivProps = PropsWithRefAndChildren<PropsWithRef<JSX.IntrinsicElements["div"]>>;
 
-export type HTMLSpanProps = PropsWithRefAndChildren<JSX.IntrinsicElements["span"]>;
+  type HTMLSpanProps = PropsWithRefAndChildren<JSX.IntrinsicElements["span"]>;
 
-export type HTMLSectionProps = PropsWithRefAndChildren<JSX.IntrinsicElements["section"]>;
+  type HTMLSectionProps = PropsWithRefAndChildren<JSX.IntrinsicElements["section"]>;
 
-export type HTMLNavProps = PropsWithRefAndChildren<JSX.IntrinsicElements["nav"]>;
+  type HTMLNavProps = PropsWithRefAndChildren<JSX.IntrinsicElements["nav"]>;
 
-export type HTMLHeaderProps = PropsWithRefAndChildren<JSX.IntrinsicElements["header"]>;
+  type HTMLHeaderProps = PropsWithRefAndChildren<JSX.IntrinsicElements["header"]>;
 
-export type HTMLFooterProps = PropsWithRefAndChildren<JSX.IntrinsicElements["footer"]>;
+  type HTMLFooterProps = PropsWithRefAndChildren<JSX.IntrinsicElements["footer"]>;
 
-export type HTMLButtonProps = PropsWithRefAndChildren<JSX.IntrinsicElements["button"]>;
+  type HTMLButtonProps = PropsWithRefAndChildren<JSX.IntrinsicElements["button"]>;
 
-export type HTMLAnchorProps = PropsWithRefAndChildren<JSX.IntrinsicElements["a"]>;
+  type HTMLAnchorProps = PropsWithRefAndChildren<JSX.IntrinsicElements["a"]>;
 
-export type HTMLInputProps = PropsWithRefAndChildren<JSX.IntrinsicElements["input"]>;
+  type HTMLInputProps = PropsWithRefAndChildren<JSX.IntrinsicElements["input"]>;
 
-export type HTMLTextAreaProps = PropsWithRefAndChildren<JSX.IntrinsicElements["textarea"]>;
+  type HTMLTextAreaProps = PropsWithRefAndChildren<JSX.IntrinsicElements["textarea"]>;
 
-export type HTMLFormProps = PropsWithRefAndChildren<JSX.IntrinsicElements["form"]>;
+  type HTMLFormProps = PropsWithRefAndChildren<JSX.IntrinsicElements["form"]>;
 
-export type HTMLHeadingProps = PropsWithRefAndChildren<JSX.IntrinsicElements["h1"]>;
+  type HTMLHeadingProps = PropsWithRefAndChildren<JSX.IntrinsicElements["h1"]>;
 
-export type HTMLParagraphProps = PropsWithRefAndChildren<JSX.IntrinsicElements["p"]>;
+  type HTMLParagraphProps = PropsWithRefAndChildren<JSX.IntrinsicElements["p"]>;
 
-export type HTMLSVGProps = PropsWithRefAndChildren<JSX.IntrinsicElements["svg"]>;
+  type HTMLSVGProps = PropsWithRefAndChildren<JSX.IntrinsicElements["svg"]>;
 
-export type HTMLLabelProps = PropsWithRefAndChildren<JSX.IntrinsicElements["label"]>;
+  type HTMLLabelProps = PropsWithRefAndChildren<JSX.IntrinsicElements["label"]>;
 
-export type HTMLAsideProps = PropsWithRefAndChildren<JSX.IntrinsicElements["aside"]>;
+  type HTMLAsideProps = PropsWithRefAndChildren<JSX.IntrinsicElements["aside"]>;
+}

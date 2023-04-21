@@ -2,7 +2,6 @@ import * as S from "./elements";
 import { useState } from "react";
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { helloSchema } from "schemas";
-import type { HTMLFormProps } from "types";
 import type { HelloRequest, HelloResponse } from "pages/api/hello";
 import { useZodForm } from "hooks";
 

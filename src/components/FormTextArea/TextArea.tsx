@@ -1,5 +1,5 @@
 import { useController, UseControllerProps, FieldValues } from "react-hook-form";
-import type { KeyOfType, HTMLTextAreaProps } from "types";
+import type { KeyOfType } from "types";
 import * as S from "./elements";
 
 export interface FormTextAreaProps<T extends FieldValues = any>

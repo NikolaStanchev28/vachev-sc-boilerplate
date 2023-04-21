@@ -1,7 +1,6 @@
 import * as S from "./elements";
 import { useController, UseControllerProps, FieldValues } from "react-hook-form";
-import { getRandomIntInclusive } from "utils";
-import type { KeyOfType, HTMLInputProps } from "types";
+import type { KeyOfType } from "types";
 
 export interface FormCheckboxProps<T extends FieldValues = any>
   extends Omit<HTMLInputProps, "name" | "defaultValue">,

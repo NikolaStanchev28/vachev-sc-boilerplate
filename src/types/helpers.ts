@@ -12,7 +12,4 @@ type KeyTypes<T> = {
  * Fix unexpected behavior of Typescript's `keyof` operator
  * @see https://github.com/microsoft/TypeScript/issues/23724
  */
-export type KeyOfType<T, KeyType extends string | number | symbol = KeyTypes<T>> = Extract<
-  keyof T,
-  KeyType
->;
+export type KeyOfType<T, KeyType extends PropertyKey = KeyTypes<T>> = Extract<keyof T, KeyType>;
