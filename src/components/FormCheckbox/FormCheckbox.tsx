@@ -1,11 +1,9 @@
 import * as S from "./elements";
-import { useController, UseControllerProps, FieldValues } from "react-hook-form";
-import type { KeyOfType } from "types";
+import { useController, FieldValues, Control, Path } from "react-hook-form";
 
-export interface FormCheckboxProps<T extends FieldValues = any>
-  extends Omit<HTMLInputProps, "name" | "defaultValue">,
-    Omit<UseControllerProps<T>, "name"> {
-  name: KeyOfType<T>;
+export interface FormCheckboxProps<T extends FieldValues = any> extends HTMLInputProps {
+  name: Path<T>;
+  control: Control<T, any>;
   label?: string;
 }
 

@@ -1,11 +1,9 @@
-import { useController, UseControllerProps, FieldValues } from "react-hook-form";
-import type { KeyOfType } from "types";
+import { useController, FieldValues, Path, Control } from "react-hook-form";
 import * as S from "./elements";
 
-export interface FormTextAreaProps<T extends FieldValues = any>
-  extends Omit<HTMLTextAreaProps, "name" | "defaultValue">,
-    Omit<UseControllerProps<T>, "name"> {
-  name: KeyOfType<T>;
+export interface FormTextAreaProps<T extends FieldValues = any> extends HTMLTextAreaProps {
+  name: Path<T>;
+  control: Control<T, any>;
   label?: string;
 }
 

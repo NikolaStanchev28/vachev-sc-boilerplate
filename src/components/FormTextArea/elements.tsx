@@ -30,7 +30,7 @@ export const ErrorText = styled("p")`
   margin: 0;
 `;
 
-export const TextArea = styled("textarea")<FormTextAreaProps>`
+export const TextArea = styled("textarea")`
   appearance: none;
   display: flex;
   align-items: center;

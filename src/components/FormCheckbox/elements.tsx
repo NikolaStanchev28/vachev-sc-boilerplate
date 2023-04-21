@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import type { FormCheckboxProps } from "./FormCheckbox";
 
 export const Container = styled("div")`
   display: flex;
@@ -33,7 +32,7 @@ export const ErrorText = styled("p")`
   margin: 0;
 `;
 
-export const Input = styled("input")<FormCheckboxProps>`
+export const Input = styled("input")`
   width: 20px;
   height: 20px;
   margin: 0;
