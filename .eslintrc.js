@@ -1,15 +1,18 @@
-{
-  "parser": "@typescript-eslint/parser",
-  "env": {
-    "es6": true
+// @ts-check
+const { defineConfig } = require("eslint-define-config");
+
+module.exports = defineConfig({
+  parser: "@typescript-eslint/parser",
+  env: {
+    es6: true
   },
-  "settings": {
-    "react": {
-      "pragma": "React",
-      "version": "detect"
+  settings: {
+    react: {
+      pragma: "React",
+      version: "detect"
     }
   },
-  "extends": [
+  extends: [
     "plugin:@next/next/recommended",
     // "plugin:@typescript-eslint/recommended",
     "plugin:jsx-a11y/recommended",
@@ -18,7 +21,7 @@
     "plugin:prettier/recommended",
     "plugin:react-hooks/recommended"
   ],
-  "plugins": [
+  plugins: [
     "better-styled-components",
     "styled-components-a11y",
     "simple-import-sort",
@@ -27,11 +30,11 @@
     "@typescript-eslint",
     "prettier"
   ],
-  "parserOptions": {
-    "ecmaVersion": 2018, // Allows for the parsing of modern ECMAScript features
-    "sourceType": "module" // Allows for the use of imports
+  parserOptions: {
+    ecmaVersion: 2018,
+    sourceType: "module"
   },
-  "rules": {
+  rules: {
     "sort-imports": "off",
     "import/first": "warn",
     "import/newline-after-import": "warn",
@@ -39,25 +42,20 @@
     "import/order": "off",
     "prettier/prettier": "off",
     "@typescript-eslint/no-non-null-assertion": 0,
-    // "better-styled-components/sort-declarations-alphabetically": 1,
     "@typescript-eslint/explicit-function-return-type": 0,
-    // "no-console": 2,
     "react/no-unescaped-entities": 0,
     "jsx-a11y/label-has-associated-control": 0,
     "ban-ts-ignore": 0,
     "react/prop-types": 0,
     "react/display-name": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
-    // "sort-keys": [1, "asc", { "caseSensitive": true, "natural": false, "minKeys": 2 }],
-    // "react-hooks/exhaustive-deps": 0,
     "no-case-declarations": 0,
     "jsx-a11y/label-has-for": 0,
-    "vachev/styled-component-format": "off",
     "jsx-a11y/anchor-is-valid": "off",
     "jsx-a11y/anchor-has-content": "off",
     "jsx-a11y/heading-has-content": "off"
   },
-  "globals": {
-    "React": "writable"
+  globals: {
+    React: "writable"
   }
-}
+});
