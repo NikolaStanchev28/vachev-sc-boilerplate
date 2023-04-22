@@ -21,7 +21,9 @@ declare global {
 
   type HTMLAnchorProps = PropsWithRefAndChildren<JSX.IntrinsicElements["a"]>;
 
-  type HTMLInputProps = PropsWithRefAndChildren<JSX.IntrinsicElements["input"]>;
+  type HTMLInputProps = PropsWithRef<
+    Omit<JSX.IntrinsicElements["input"], "children" | "dangerouslySetInnerHTML">
+  >;
 
   type HTMLTextAreaProps = PropsWithRefAndChildren<JSX.IntrinsicElements["textarea"]>;
 
