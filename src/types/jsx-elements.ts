@@ -25,7 +25,9 @@ declare global {
     Omit<JSX.IntrinsicElements["input"], "children" | "dangerouslySetInnerHTML">
   >;
 
-  type HTMLTextAreaProps = PropsWithRefAndChildren<JSX.IntrinsicElements["textarea"]>;
+  type HTMLTextAreaProps = PropsWithRefAndChildren<
+    Omit<JSX.IntrinsicElements["textarea"], "dangerouslySetInnerHTML">
+  >;
 
   type HTMLFormProps = PropsWithRefAndChildren<JSX.IntrinsicElements["form"]>;
 
