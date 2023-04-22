@@ -33,13 +33,13 @@ export const Form = styled("form")<HelloFormProps>`
   }
 `;
 
-export const FormInput = styled(_FormInput)<FormInputProps<HelloRequest["body"]>>`
+export const FormInput = styled(_FormInput<HelloRequest["body"]>)`
   margin-bottom: 0.5em;
 `;
 
-export const FormTextArea = styled(_FormTextArea)<FormTextAreaProps<HelloRequest["body"]>>``;
+export const FormTextArea = styled(_FormTextArea<HelloRequest["body"]>)``;
 
-export const FormCheckbox = styled(_FormCheckbox)<FormCheckboxProps<HelloRequest["body"]>>``;
+export const FormCheckbox = styled(_FormCheckbox<HelloRequest["body"]>)``;
 
 export const HeaderText = styled("span")`
   font-family: "Montserrat";

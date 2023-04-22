@@ -7,7 +7,12 @@ export interface FormCheckboxProps<T extends FieldValues = any> extends HTMLInpu
   label?: string;
 }
 
-export const FormCheckbox = ({ name, control, label, ...props }: FormCheckboxProps) => {
+export const FormCheckbox = <T extends FieldValues = any>({
+  name,
+  control,
+  label,
+  ...props
+}: FormCheckboxProps<T>) => {
   const {
     field: { onChange, onBlur, value, ref },
     fieldState: { invalid, isTouched, isDirty, error },
@@ -16,7 +21,7 @@ export const FormCheckbox = ({ name, control, label, ...props }: FormCheckboxPro
     name,
     control,
     rules: { required: true },
-    defaultValue: false
+    defaultValue: false as any
   });
 
   return (

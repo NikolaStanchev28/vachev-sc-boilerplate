@@ -7,7 +7,12 @@ export interface FormInputProps<T extends FieldValues = any> extends HTMLInputPr
   label?: string;
 }
 
-export const FormInput = ({ name, control, label, ...props }: FormInputProps) => {
+export const FormInput = <T extends FieldValues = any>({
+  name,
+  control,
+  label,
+  ...props
+}: FormInputProps<T>) => {
   const {
     field: { onChange, onBlur, value, ref },
     fieldState: { invalid, isTouched, isDirty, error },
@@ -16,7 +21,7 @@ export const FormInput = ({ name, control, label, ...props }: FormInputProps) =>
     name,
     control,
     rules: { required: true },
-    defaultValue: ""
+    defaultValue: "" as any
   });
 
   return (

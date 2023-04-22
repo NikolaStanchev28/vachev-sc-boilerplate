@@ -7,7 +7,12 @@ export interface FormTextAreaProps<T extends FieldValues = any> extends HTMLText
   label?: string;
 }
 
-export const FormTextArea = ({ name, control, label, ...props }: FormTextAreaProps) => {
+export const FormTextArea = <T extends FieldValues = any>({
+  name,
+  control,
+  label,
+  ...props
+}: FormTextAreaProps<T>) => {
   const {
     field: { onChange, onBlur, value, ref },
     fieldState: { invalid, isTouched, isDirty, error },
@@ -16,7 +21,7 @@ export const FormTextArea = ({ name, control, label, ...props }: FormTextAreaPro
     name,
     control,
     rules: { required: true },
-    defaultValue: ""
+    defaultValue: "" as any
   });
 
   return (
