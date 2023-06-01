@@ -13,3 +13,5 @@ type KeyTypes<T> = {
  * @see https://github.com/microsoft/TypeScript/issues/23724
  */
 export type KeyOfType<T, KeyType extends PropertyKey = KeyTypes<T>> = Extract<keyof T, KeyType>;
+
+export type Showable<T = void> = T extends void ? { show?: boolean } : T & { show?: boolean };
