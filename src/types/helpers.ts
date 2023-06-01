@@ -16,3 +16,5 @@ export type KeyOfType<T, KeyType extends string | number | symbol = KeyTypes<T>>
   keyof T,
   KeyType
 >;
+
+export type Showable<T = void> = T extends void ? { show?: boolean } : T & { show?: boolean };
