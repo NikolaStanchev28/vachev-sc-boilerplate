@@ -14,4 +14,4 @@ type KeyTypes<T> = {
  */
 export type KeyOfType<T, KeyType extends PropertyKey = KeyTypes<T>> = Extract<keyof T, KeyType>;
 
-export type Showable<T = void> = T extends void ? { show?: boolean } : T & { show?: boolean };
+export type Hideable<T = void> = T extends void ? { hide?: boolean } : T & { hide?: boolean };
