@@ -1,6 +1,6 @@
 import "styled-components";
 import {
-  BreakpointsValuesType,
+  BreakpointValues,
   MaxWidthBreakpointsType,
   MinWidthBreakpointsType,
   TypographyStylesProps
@@ -14,7 +14,7 @@ declare module "styled-components" {
   type Breakpoints = {
     max: MaxWidthBreakpointsType;
     min: MinWidthBreakpointsType;
-    val: BreakpointsValuesType;
+    val: BreakpointValues;
   };
 
   export interface DefaultTheme {
