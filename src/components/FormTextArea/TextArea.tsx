@@ -1,9 +1,7 @@
-import { useController, FieldValues, Path, Control } from "react-hook-form";
 import * as S from "./elements";
+import { useController, FieldValues } from "react-hook-form";
 
-export interface FormTextAreaProps<T extends FieldValues = any> extends HTMLTextAreaProps {
-  name: Path<T>;
-  control: Control<T, any>;
+export interface FormTextAreaProps {
   label?: string;
 }
 
@@ -12,7 +10,7 @@ export const FormTextArea = <T extends FieldValues = any>({
   control,
   label,
   ...props
-}: FormTextAreaProps<T>) => {
+}: FormTextAreaProps & ControlledTextAreaProps<T>) => {
   const {
     field: { onChange, onBlur, value, ref },
     fieldState: { invalid, isTouched, isDirty, error },
@@ -43,5 +41,3 @@ export const FormTextArea = <T extends FieldValues = any>({
     </S.Container>
   );
 };
-
-FormTextArea.displayName = "FormTextArea";

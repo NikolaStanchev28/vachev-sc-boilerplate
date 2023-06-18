@@ -2,17 +2,12 @@ import styled, { css } from "styled-components";
 import {
   Button as _Button,
   FormInput as _FormInput,
-  FormInputProps,
   FormTextArea as _FormTextArea,
-  FormTextAreaProps,
-  FormCheckbox as _FormCheckbox,
-  FormCheckboxProps
+  FormCheckbox as _FormCheckbox
 } from "components";
 import { theme } from "styles";
-import { HelloFormProps } from "./HelloForm";
-import { HelloRequest } from "pages/api/hello";
 
-export const Form = styled("form")<HelloFormProps>`
+export const Form = styled("form")`
   display: flex;
   flex-direction: column;
   padding: 18px 40px;
@@ -33,13 +28,13 @@ export const Form = styled("form")<HelloFormProps>`
   }
 `;
 
-export const FormInput = styled(_FormInput<HelloRequest["body"]>)`
+export const FormInput = styled(_FormInput)`
   margin-bottom: 0.5em;
-`;
+` as typeof _FormInput;
 
-export const FormTextArea = styled(_FormTextArea<HelloRequest["body"]>)``;
+export const FormTextArea = styled(_FormTextArea)`` as typeof _FormTextArea;
 
-export const FormCheckbox = styled(_FormCheckbox<HelloRequest["body"]>)``;
+export const FormCheckbox = styled(_FormCheckbox)`` as typeof _FormCheckbox;
 
 export const HeaderText = styled("span")`
   font-family: "Montserrat";

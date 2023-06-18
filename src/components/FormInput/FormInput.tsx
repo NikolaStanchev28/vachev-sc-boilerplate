@@ -1,9 +1,7 @@
-import { useController, Control, Path, FieldValues } from "react-hook-form";
 import * as S from "./elements";
+import { useController, FieldValues } from "react-hook-form";
 
-export interface FormInputProps<T extends FieldValues = any> extends HTMLInputProps {
-  name: Path<T>;
-  control: Control<T, any>;
+export interface FormInputProps {
   label?: string;
 }
 
@@ -12,7 +10,7 @@ export const FormInput = <T extends FieldValues = any>({
   control,
   label,
   ...props
-}: FormInputProps<T>) => {
+}: FormInputProps & ControlledInputProps<T>) => {
   const {
     field: { onChange, onBlur, value, ref },
     fieldState: { invalid, isTouched, isDirty, error },
@@ -43,5 +41,3 @@ export const FormInput = <T extends FieldValues = any>({
     </S.Container>
   );
 };
-
-FormInput.displayName = "FormInput";

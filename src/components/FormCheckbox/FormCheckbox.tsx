@@ -1,9 +1,7 @@
 import * as S from "./elements";
-import { useController, FieldValues, Control, Path } from "react-hook-form";
+import { useController, FieldValues } from "react-hook-form";
 
-export interface FormCheckboxProps<T extends FieldValues = any> extends HTMLInputProps {
-  name: Path<T>;
-  control: Control<T, any>;
+export interface FormCheckboxProps {
   label?: string;
 }
 
@@ -12,7 +10,7 @@ export const FormCheckbox = <T extends FieldValues = any>({
   control,
   label,
   ...props
-}: FormCheckboxProps<T>) => {
+}: FormCheckboxProps & ControlledInputProps<T>) => {
   const {
     field: { onChange, onBlur, value, ref },
     fieldState: { invalid, isTouched, isDirty, error },
@@ -45,5 +43,3 @@ export const FormCheckbox = <T extends FieldValues = any>({
     </S.Container>
   );
 };
-
-FormCheckbox.displayName = "FormCheckbox";
