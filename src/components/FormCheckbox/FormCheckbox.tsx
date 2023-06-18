@@ -1,24 +1,22 @@
 import * as S from "./elements";
-import { useController, FieldValues } from "react-hook-form";
+import { useController } from "react-hook-form";
 
 export interface FormCheckboxProps {
   label?: string;
 }
 
-export const FormCheckbox = <T extends FieldValues = any>({
+export const FormCheckbox: ControlledInput<FormCheckboxProps> = ({
   name,
   control,
   label,
   ...props
-}: FormCheckboxProps & ControlledInputProps<T>) => {
+}) => {
   const {
     field: { onChange, onBlur, value, ref },
-    fieldState: { invalid, isTouched, isDirty, error },
-    formState: { touchedFields, dirtyFields }
+    fieldState: { error }
   } = useController({
     name,
     control,
-    rules: { required: true },
     defaultValue: false as any
   });
 
@@ -26,7 +24,6 @@ export const FormCheckbox = <T extends FieldValues = any>({
     <S.Container {...props}>
       <S.InputWrapper>
         <S.Input
-          {...props}
           type='checkbox'
           spellCheck={false}
           onChange={onChange}

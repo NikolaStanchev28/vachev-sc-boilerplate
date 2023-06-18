@@ -11,4 +11,16 @@ declare global {
 
   type ControlledTextAreaProps<T extends FieldValues> = ControlledProps<T> &
     Omit<HTMLTextAreaProps, "name">;
+
+  type ControlledInput<P = {}> = <T extends FieldValues = any>({
+    name,
+    control,
+    ...props
+  }: P & ControlledInputProps<T>) => JSX.Element;
+
+  type ControlledTextArea<P = {}> = <T extends FieldValues = any>({
+    name,
+    control,
+    ...props
+  }: P & ControlledTextAreaProps<T>) => JSX.Element;
 }

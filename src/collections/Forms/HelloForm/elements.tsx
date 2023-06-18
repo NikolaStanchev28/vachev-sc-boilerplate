@@ -6,6 +6,7 @@ import {
   FormCheckbox as _FormCheckbox
 } from "components";
 import { theme } from "styles";
+import { Hideable } from "types";
 
 export const Form = styled("form")`
   display: flex;
@@ -75,15 +76,21 @@ export const ErrorMessage = styled("span")`
   font-weight: 700;
 `;
 
-export const FormError = styled("h2")`
-  color: ${theme.colors.black};
-  margin: 2em 0.5em 1em;
-  padding: 0.2em 1em;
-  border: 2px solid #ffb900;
-  font-family: "Crimson Text", Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.8;
-`;
+export const FormError = styled("p")<Hideable>(
+  ({ theme: { colors }, hide }) =>
+    css`
+      color: ${theme.colors.black};
+      margin: 2em 0.5em 1em;
+      padding: 0.2em 1em;
+      border: 2px solid #ffb900;
+      font-family: "Crimson Text", Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.8;
 
-// export {};
+      ${hide &&
+      css`
+        display: none;
+      `}
+    `
+);

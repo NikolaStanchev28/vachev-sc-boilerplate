@@ -1,24 +1,22 @@
 import * as S from "./elements";
-import { useController, FieldValues } from "react-hook-form";
+import { useController } from "react-hook-form";
 
 export interface FormTextAreaProps {
   label?: string;
 }
 
-export const FormTextArea = <T extends FieldValues = any>({
+export const FormTextArea: ControlledTextArea<FormTextAreaProps> = ({
   name,
   control,
   label,
   ...props
-}: FormTextAreaProps & ControlledTextAreaProps<T>) => {
+}) => {
   const {
     field: { onChange, onBlur, value, ref },
-    fieldState: { invalid, isTouched, isDirty, error },
-    formState: { touchedFields, dirtyFields }
+    fieldState: { error }
   } = useController({
     name,
     control,
-    rules: { required: true },
     defaultValue: "" as any
   });
 

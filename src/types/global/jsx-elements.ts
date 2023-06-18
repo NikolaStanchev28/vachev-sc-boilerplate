@@ -40,4 +40,6 @@ declare global {
   type HTMLLabelProps = PropsWithRefAndChildren<JSX.IntrinsicElements["label"]>;
 
   type HTMLAsideProps = PropsWithRefAndChildren<JSX.IntrinsicElements["aside"]>;
+
+  type HTMLTableProps = PropsWithRefAndChildren<JSX.IntrinsicElements["table"]>;
 }

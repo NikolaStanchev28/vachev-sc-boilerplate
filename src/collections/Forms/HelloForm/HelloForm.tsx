@@ -1,6 +1,6 @@
 import * as S from "./elements";
 import { useState } from "react";
-import axios, { AxiosError, AxiosResponse } from "axios";
+import axios, { AxiosError, AxiosResponse, isAxiosError } from "axios";
 import { helloSchema } from "schemas";
 import type { HelloRequest, HelloResponse } from "pages/api/hello";
 import { useZodForm } from "hooks";
@@ -12,7 +12,7 @@ export const HelloForm = ({ ...props }: HelloFormProps) => {
   const [successfulSubmit, setSuccessfulSubmit] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const { control, handleSubmit } = useZodForm(helloSchema, { agreeToTOS: true });
+  const { control, handleSubmit, resetField } = useZodForm(helloSchema, { agreeToTOS: true });
 
   const submitHandler = handleSubmit(async ({ userName, agreeToTOS }) => {
     try {
@@ -24,10 +24,16 @@ export const HelloForm = ({ ...props }: HelloFormProps) => {
 
       setSuccessfulSubmit(true);
       setMessage(response.data.message);
+
+      setTimeout(() => {
+        setSuccessfulSubmit(false);
+        setMessage(null);
+        resetField("userName");
+        resetField("agreeToTOS");
+      }, 5000);
     } catch (error: any) {
-      const axiosError = error as AxiosError<any>;
-      setError(axiosError.response?.data.error || error.message);
-      console.warn(axiosError.response?.data.error || error.message);
+      setError(isAxiosError(error) ? error.response?.data.error : error.message);
+      console.warn(isAxiosError(error) ? error.response?.data.error : error.message);
     }
   });
 
@@ -54,15 +60,11 @@ export const HelloForm = ({ ...props }: HelloFormProps) => {
           />
 
           <S.Actions>
-            <S.Button variant='primary' type='submit'>
-              Send
-            </S.Button>
-            {error && <S.FormError>{error}</S.FormError>}
+            <S.Button>Send</S.Button>
           </S.Actions>
+          <S.FormError hide={!error}>{error}</S.FormError>
         </>
       )}
     </S.Form>
   );
 };
-
-// export {};

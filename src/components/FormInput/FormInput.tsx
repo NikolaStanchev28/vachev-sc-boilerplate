@@ -1,24 +1,17 @@
 import * as S from "./elements";
-import { useController, FieldValues } from "react-hook-form";
+import { useController } from "react-hook-form";
 
 export interface FormInputProps {
   label?: string;
 }
 
-export const FormInput = <T extends FieldValues = any>({
-  name,
-  control,
-  label,
-  ...props
-}: FormInputProps & ControlledInputProps<T>) => {
+export const FormInput: ControlledInput<FormInputProps> = ({ name, control, label, ...props }) => {
   const {
     field: { onChange, onBlur, value, ref },
-    fieldState: { invalid, isTouched, isDirty, error },
-    formState: { touchedFields, dirtyFields }
+    fieldState: { error }
   } = useController({
     name,
     control,
-    rules: { required: true },
     defaultValue: "" as any
   });
 
@@ -27,7 +20,6 @@ export const FormInput = <T extends FieldValues = any>({
       <S.InputWrapper>
         {label && <S.Label htmlFor={name}>{label}</S.Label>}
         <S.Input
-          {...props}
           spellCheck={false}
           onChange={onChange}
           onBlur={onBlur}

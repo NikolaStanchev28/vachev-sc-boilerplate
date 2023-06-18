@@ -7,8 +7,8 @@ export type BreakpointValues = Record<Breakpoint, number>;
 type MaxWidthMediaQuery = `(max-width: ${number}px)`;
 type MinWidthMediaQuery = `(min-width: ${number}px)`;
 
-export type MinWidthBreakpointsType = Record<Breakpoint, MinWidthMediaQuery>;
-export type MaxWidthBreakpointsType = Record<Breakpoint, MaxWidthMediaQuery>;
+export type MinWidthBreakpoints = Record<Breakpoint, MinWidthMediaQuery>;
+export type MaxWidthBreakpoints = Record<Breakpoint, MaxWidthMediaQuery>;
 
 export const breakpoints: BreakpointValues = {
   S: 599,
@@ -21,9 +21,9 @@ export const breakpoints: BreakpointValues = {
 export const maxWidth = objectKeys(breakpoints).reduce((acc, key) => {
   acc[key] = `(max-width: ${breakpoints[key]}px)`;
   return acc;
-}, {} as MaxWidthBreakpointsType);
+}, {} as MaxWidthBreakpoints);
 
 export const minWidth = objectKeys(breakpoints).reduce((acc, key) => {
   acc[key] = `(min-width: ${breakpoints[key]}px)`;
   return acc;
-}, {} as MinWidthBreakpointsType);
+}, {} as MinWidthBreakpoints);

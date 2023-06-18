@@ -18,7 +18,7 @@ const handler = nc<HelloRequest, NextApiResponse<ApiResponseBase<HelloResponse>>
 
     res
       .status(err.statusCode || 500)
-      .json({ error: err instanceof ZodError ? err.issues : err.message });
+      .json({ error: err instanceof ZodError ? err.issues[0].message : err.message });
   },
   onNoMatch: (req, res) => {
     res.status(404).end("Page not found");
