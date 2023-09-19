@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
 import { BreakpointValues, minWidth, maxWidth } from "styles";
+import { kv } from "utils";
 
 type MediaQueryType = "min" | "max";
 type MediaQueryBreakpoint = keyof BreakpointValues;
-
-const kv = <K extends PropertyKey, V>(k: K, v: V) =>
-  ({ [k]: v } as { [P in K]: { [Q in P]: V } }[K]);
 
 /**
  * @example const { maxM } = useMediaQuery({ type: "max", breakpoint: "M" });

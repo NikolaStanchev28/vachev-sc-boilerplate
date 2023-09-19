@@ -41,3 +41,14 @@ export const shallowReplaceQuery = (
     { shallow: true }
   );
 };
+
+/**
+ *
+ * @param k object key
+ * @param v object value
+ * @returns the object with narrow index signature
+ * @example kv("key", "value") // { key: "value" }
+ * @see [Computed property key names should not be widened](https://github.com/microsoft/TypeScript/issues/13948)
+ */
+export const kv = <K extends PropertyKey, V>(k: K, v: V) =>
+  ({ [k]: v } as { [P in K]: { [Q in P]: V } }[K]);
