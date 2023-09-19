@@ -1,16 +1,24 @@
-import { minWidth, maxWidth, Breakpoint } from "styles";
 import { useState, useEffect } from "react";
+import { BreakpointValues, minWidth, maxWidth } from "styles";
+
+type MediaQueryType = "min" | "max";
+type MediaQueryBreakpoint = keyof BreakpointValues;
+
+const kv = <K extends PropertyKey, V>(k: K, v: V) =>
+  ({ [k]: v } as { [P in K]: { [Q in P]: V } }[K]);
 
 /**
- * @example const [isMediumScreenDevice] = useMediaQuery({ type: "max", breakpoint: "M" });
+ * @example const { maxM } = useMediaQuery({ type: "max", breakpoint: "M" });
  */
-export const useMediaQuery = (query: { type: "min" | "max"; breakpoint: Breakpoint }) => {
+export const useMediaQuery = <T extends MediaQueryType, B extends MediaQueryBreakpoint>(query: {
+  type: T;
+  breakpoint: B;
+}) => {
   const [breakpointMatched, setBreakpointMatched] = useState(false);
 
   const mediaQuery = query.type === "max" ? maxWidth[query.breakpoint] : minWidth[query.breakpoint];
 
   useEffect(() => {
-    const controller = new AbortController();
     const mediaQueryHandler = (event: MediaQueryListEvent) => {
       setBreakpointMatched(event.matches);
     };
@@ -19,12 +27,12 @@ export const useMediaQuery = (query: { type: "min" | "max"; breakpoint: Breakpoi
       setBreakpointMatched(true);
     }
 
-    window
-      .matchMedia(mediaQuery)
-      .addEventListener("change", mediaQueryHandler, { signal: controller.signal });
+    window.matchMedia(mediaQuery).addEventListener("change", mediaQueryHandler);
 
-    return () => controller.abort();
+    return () => {
+      window.matchMedia(mediaQuery).removeEventListener("change", mediaQueryHandler);
+    };
   }, [mediaQuery]);
 
-  return [breakpointMatched];
+  return kv(`${query.type}${query.breakpoint}`, breakpointMatched);
 };
