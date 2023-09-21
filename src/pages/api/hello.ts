@@ -8,13 +8,11 @@ export interface HelloRequest extends NextApiRequest {
   body: z.infer<typeof helloSchema>;
 }
 
-export type HelloResponse = NextApiResponse<
-  ApiResponseBase<{
-    message: `Hello ${string}!`;
-  }>
->;
+export type HelloResponse = {
+  message: `Hello ${string}!`;
+};
 
-const handler = nc<HelloRequest, HelloResponse>({
+const handler = nc<HelloRequest, NextApiResponse<ApiResponseBase<HelloResponse>>>({
   onError: (err, req, res, next) => {
     console.log(err.message);
 

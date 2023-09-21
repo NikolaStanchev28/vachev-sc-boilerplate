@@ -23,7 +23,7 @@ export const HelloForm = ({ ...props }: HelloFormProps) => {
       >("/api/hello", { userName, agreeToTOS });
 
       setSuccessfulSubmit(true);
-      setMessage(response.data.message);
+      setMessage(response.data?.message);
 
       setTimeout(() => {
         setSuccessfulSubmit(false);
