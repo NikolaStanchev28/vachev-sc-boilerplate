@@ -52,3 +52,25 @@ export const shallowReplaceQuery = (
  */
 export const kv = <K extends PropertyKey, V>(k: K, v: V) =>
   ({ [k]: v } as { [P in K]: { [Q in P]: V } }[K]);
+
+/**
+ * @param px - number of pixels
+ * @returns pixels converted to rem
+ * @remarks Make sure edit this function to match the body's font size in src/styles/global.ts
+ */
+export const rem = (px: number) => `${px / 16}rem`;
+
+export const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+export const mbToBytes = (mb: number) => mb * 1024 * 1024;
+
+export const chunkArray = <T>(array: T[], chunkSize: number): T[][] => {
+  if (chunkSize <= 0) return [[]];
+
+  const result: T[][] = [];
+  for (let i = 0; i < array.length; i += chunkSize) {
+    result.push(array.slice(i, i + chunkSize));
+  }
+
+  return result;
+};
