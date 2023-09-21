@@ -1,4 +1,4 @@
-export type ApiResponseBase<T = any> = T | { error: string };
+export type ApiResponseBase<T = any, E = string[]> = T | { errors: E };
 
 export type RequestWithPagination<T> = T & {
   meta: {
