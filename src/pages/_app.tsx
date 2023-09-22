@@ -10,7 +10,7 @@ const tagManagerArgs = {
   gtmId: "GTM-XXXXXXX"
 };
 
-function MyApp({ Component, pageProps: { ...pageProps } }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     // TagManager.initialize(tagManagerArgs);
   }, []);

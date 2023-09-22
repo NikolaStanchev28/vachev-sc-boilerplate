@@ -31,18 +31,11 @@
     "sourceMap": true
   },
   "include": [
-    "src/types/global/styled.d.ts",
-    "global.d.ts",
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx",
-    "next.config.js"
+    "**/*.tsx"
   ],
   "exclude": [
-    "dist",
-    ".next",
-    "out",
-    "next.config.js",
     "node_modules"
   ]
 }

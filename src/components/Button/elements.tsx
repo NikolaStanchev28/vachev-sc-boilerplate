@@ -1,15 +1,9 @@
-import styled, {
-  css,
-  FlattenInterpolation,
-  ThemedStyledProps,
-  DefaultTheme
-} from "styled-components";
+import styled, { css, DefaultTheme } from "styled-components";
 import type { ButtonProps } from "./Button";
 
-const buttonStyles: Record<
-  NonNullable<ButtonProps["variant"]>,
-  FlattenInterpolation<ThemedStyledProps<ButtonProps, DefaultTheme>>
-> = {
+type CSS = ReturnType<typeof css>;
+
+const buttonStyles: Record<NonNullable<ButtonProps["variant"]>, CSS> = {
   primary: css`
     color: ${({ theme }) => theme.colors.white};
     background-color: ${({ theme }) => theme.colors.primary};
