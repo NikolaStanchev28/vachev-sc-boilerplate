@@ -1,4 +1,4 @@
-import { useForm, FieldValues, DeepPartial, UseFormProps } from "react-hook-form";
+import { useForm, FieldValues, DefaultValues, UseFormProps } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
@@ -10,7 +10,7 @@ import { z } from "zod";
  */
 export const useZodForm = <TValues extends FieldValues>(
   formSchema: z.Schema<TValues>,
-  defaultValues?: DeepPartial<TValues>,
+  defaultValues?: DefaultValues<TValues>,
   options?: Omit<UseFormProps<TValues>, "resolver" | "defaultValues">
 ) => {
   const resolver = zodResolver(formSchema);
