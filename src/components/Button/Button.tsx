@@ -10,3 +10,5 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return <S.Button {...props} variant={variant} ref={ref} />;
   }
 );
+
+Button.displayName = "Button";

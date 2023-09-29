@@ -14,7 +14,7 @@ export const InputWrapper = styled("div")`
 export const Label = styled("label")`
   color: ${({ theme }) => theme.colors.black};
   white-space: nowrap;
-  font-family: "Crimson Text", Arial, sans-serif;
+  font-family: var(--font-inter);
   font-size: 18px;
   font-weight: 400;
   line-height: 1.8;
@@ -24,7 +24,7 @@ export const Label = styled("label")`
 export const ErrorText = styled("p")`
   color: ${({ theme }) => theme.colors.vividRed};
   white-space: nowrap;
-  font-family: "Crimson Text", Arial, sans-serif;
+  font-family: var(--font-inter);
   font-size: 18px;
   font-weight: 400;
   line-height: 1.8;
