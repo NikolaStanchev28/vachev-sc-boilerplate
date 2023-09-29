@@ -2,7 +2,7 @@ import * as S from "./elements";
 import { useState } from "react";
 import axios, { AxiosError, AxiosResponse, isAxiosError } from "axios";
 import { helloSchema } from "schemas";
-import type { HelloRequest, HelloResponse } from "pages/api/hello";
+import type { HelloRequest, HelloResponse } from "types";
 import { useZodForm } from "hooks";
 
 export interface HelloFormProps extends HTMLFormProps {}
@@ -20,7 +20,7 @@ export const HelloForm = ({ ...props }: HelloFormProps) => {
         HelloResponse,
         AxiosResponse<HelloResponse>,
         HelloRequest["body"]
-      >("/api/hello", { userName, agreeToTOS });
+      >("/hello", { userName, agreeToTOS });
 
       setSuccessfulSubmit(true);
       setMessage(response.data?.message);
@@ -62,7 +62,7 @@ export const HelloForm = ({ ...props }: HelloFormProps) => {
           <S.Actions>
             <S.Button>Send</S.Button>
           </S.Actions>
-          <S.FormError hide={!error}>{error}</S.FormError>
+          <S.FormError $hide={!error}>{error}</S.FormError>
         </>
       )}
     </S.Form>

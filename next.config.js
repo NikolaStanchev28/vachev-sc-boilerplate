@@ -1,12 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  distDir: ".next",
-  env: {},
-  experimental: {},
   images: {
-    domains: ["https://www.publishersweekly.com"]
+    domains: ["cdn.shopify.com"]
   },
-  trailingSlash: true,
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
@@ -15,9 +11,6 @@ const nextConfig = {
     });
 
     return config;
-  },
-  compiler: {
-    styledComponents: true
   }
 };
 

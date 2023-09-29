@@ -12,7 +12,7 @@ export const InputWrapper = styled("div")`
 export const Label = styled("label")`
   color: ${({ theme }) => theme.colors.black};
   white-space: nowrap;
-  font-family: "Crimson Text", Arial, sans-serif;
+  font-family: var(--font-inter);
   font-size: 18px;
   font-weight: 400;
   line-height: 1.8;
@@ -22,7 +22,7 @@ export const Label = styled("label")`
 export const ErrorText = styled("p")`
   color: ${({ theme }) => theme.colors.vividRed};
   white-space: nowrap;
-  font-family: "Crimson Text", Arial, sans-serif;
+  font-family: var(--font-inter);
   font-size: 18px;
   font-weight: 400;
   line-height: 1.8;
@@ -42,7 +42,7 @@ export const Input = styled("input")`
   background: transparent;
   padding: 0.8em;
 
-  font-family: "Playfair Display", Arial, sans-serif;
+  font-family: var(--font-inter);
   font-size: 0.8em;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50px;
@@ -52,5 +52,7 @@ export const Input = styled("input")`
     box-shadow: 0 0 4px 0 ${({ theme }) => theme.colors.primary};
   }
 
-  transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition:
+    border 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
 `;

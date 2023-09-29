@@ -1,7 +1,6 @@
 import { DefaultTheme } from "styled-components";
 import { breakpoints, maxWidth, minWidth } from "./breakpoints";
 import { typography } from "./commonStyles";
-
 export const theme: DefaultTheme = {
   colors: {
     primary: "#24CAE2",

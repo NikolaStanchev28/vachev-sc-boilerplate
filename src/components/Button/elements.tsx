@@ -21,7 +21,9 @@ const buttonStyles: Record<NonNullable<ButtonProps["variant"]>, CSS> = {
     background-color: transparent;
     padding: 0.9em 2em;
     border: 1px solid ${({ theme }) => theme.colors.white};
-    transition: color 500ms ease, background-color 500ms ease;
+    transition:
+      color 500ms ease,
+      background-color 500ms ease;
 
     &:hover {
       color: ${({ theme }) => theme.colors.black};
@@ -30,15 +32,19 @@ const buttonStyles: Record<NonNullable<ButtonProps["variant"]>, CSS> = {
   `
 };
 
-export const Button = styled("button")<ButtonProps>`
-  font-family: "Playfair Display";
-  font-weight: 700;
-  font-size: 0.8em;
-  line-height: 1;
-  cursor: pointer;
-  outline: none;
-  border-radius: 50px;
-  white-space: nowrap;
+export const Button = styled("button").withConfig({
+  shouldForwardProp: prop => !["variant"].includes(prop)
+})<ButtonProps>(
+  ({ theme: { colors }, variant }) => css`
+    font-family: var(--font-inter);
+    font-weight: 700;
+    font-size: 0.8em;
+    line-height: 1;
+    cursor: pointer;
+    outline: none;
+    border-radius: 50px;
+    white-space: nowrap;
 
-  ${({ variant }) => buttonStyles[variant!]}
-`;
+    ${buttonStyles[variant!]}
+  `
+);

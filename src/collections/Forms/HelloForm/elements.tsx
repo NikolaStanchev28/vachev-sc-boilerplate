@@ -18,13 +18,11 @@ export const Form = styled("form")`
   border-radius: 10px;
   width: 100%;
   max-width: 33.333334%;
-  margin-left: 20px;
 
   @media (max-width: 991px) {
     flex-direction: column;
     max-width: 100%;
     margin-left: 0;
-    margin-top: 4rem;
     padding: 18px 20px;
   }
 `;
@@ -38,7 +36,7 @@ export const FormTextArea = styled(_FormTextArea)`` as typeof _FormTextArea;
 export const FormCheckbox = styled(_FormCheckbox)`` as typeof _FormCheckbox;
 
 export const HeaderText = styled("span")`
-  font-family: "Montserrat";
+  font-family: var(--font-inter);
   font-size: 0.7em;
   letter-spacing: 0.2em;
   font-weight: 400;
@@ -49,7 +47,7 @@ export const HeaderText = styled("span")`
 `;
 
 export const Title = styled("h2")`
-  font-family: "Playfair Display", Arial, sans-serif;
+  font-family: var(--font-inter);
   font-size: 1.8em;
   font-weight: 400;
   letter-spacing: -1px;
@@ -58,7 +56,7 @@ export const Title = styled("h2")`
 `;
 
 export const Description = styled("p")`
-  font-family: "Crimson Text";
+  font-family: var(--font-inter);
   font-size: 1.1em;
   margin-bottom: 1.5em;
 `;
@@ -77,20 +75,19 @@ export const ErrorMessage = styled("span")`
 `;
 
 export const FormError = styled("p")<Hideable>(
-  ({ theme: { colors }, hide }) =>
-    css`
-      color: ${theme.colors.black};
-      margin: 2em 0.5em 1em;
-      padding: 0.2em 1em;
-      border: 2px solid #ffb900;
-      font-family: "Crimson Text", Arial, sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.8;
+  ({ theme: { colors }, $hide }) => css`
+    color: ${theme.colors.black};
+    margin: 2em 0.5em 1em;
+    padding: 0.2em 1em;
+    border: 2px solid #ffb900;
+    font-family: var(--font-inter);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.8;
 
-      ${hide &&
-      css`
-        display: none;
-      `}
-    `
+    ${$hide &&
+    css`
+      display: none;
+    `}
+  `
 );
