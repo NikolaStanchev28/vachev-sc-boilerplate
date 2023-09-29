@@ -30,7 +30,7 @@ export const ErrorText = styled("p")`
   margin: 0;
 `;
 
-export const Input = styled("input")<FormInputProps>`
+export const Input = styled("input")`
   appearance: none;
   display: flex;
   align-items: center;

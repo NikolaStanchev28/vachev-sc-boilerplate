@@ -1,13 +1,12 @@
 import * as S from "./elements";
-import { forwardRef, ForwardedRef } from "react";
-import type { HTMLButtonProps } from "types";
+import { forwardRef } from "react";
 
 export interface ButtonProps extends HTMLButtonProps {
   variant?: "primary" | "secondary";
 }
 
-export const Button = forwardRef(
-  ({ variant = "primary", ...props }: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ variant = "primary", ...props }, ref) => {
     return <S.Button {...props} variant={variant} ref={ref} />;
   }
 );

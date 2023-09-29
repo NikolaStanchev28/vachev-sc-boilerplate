@@ -1,5 +1,4 @@
 import * as S from "./elements";
-import { HTMLHeadingProps } from "types";
 
 export interface H1Props extends HTMLHeadingProps {
   variant?: "regular";

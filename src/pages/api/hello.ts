@@ -1,27 +1,33 @@
-import nc from "next-connect";
 import { NextApiRequest, NextApiResponse } from "next";
+import nc from "next-connect";
+import { z, ZodError } from "zod";
 import { helloSchema } from "schemas";
 import { ApiResponseBase } from "types";
 
 export interface HelloRequest extends NextApiRequest {
-  body: { userName: string };
+  body: z.infer<typeof helloSchema>;
 }
 
-export interface HelloResponse {
+export type HelloResponse = {
   message: `Hello ${string}!`;
-}
+};
 
 const handler = nc<HelloRequest, NextApiResponse<ApiResponseBase<HelloResponse>>>({
   onError: (err, req, res, next) => {
     console.log(err.message);
 
-    res.status(err.statusCode || 500).json({ error: err.message });
+    res.status(err.statusCode || 500).json({
+      errors:
+        err instanceof ZodError
+          ? err.issues.map(issue => `${issue.path}: ${issue.message}`)
+          : [err.message]
+    });
   },
   onNoMatch: (req, res) => {
     res.status(404).end("Page not found");
   }
 }).post(async (req, res) => {
-  helloSchema.validateSync(req.body);
+  helloSchema.parse(req.body);
 
   const { userName } = req.body;
 

@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     // "target": "ES2017",
-    "lib": ["dom", "es2017", "ESNext"],
+    "lib": [
+      "dom",
+      "es2017",
+      "ESNext"
+    ],
     "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
@@ -27,12 +31,11 @@
     "sourceMap": true
   },
   "include": [
-    "styled.d.ts",
-    "global.d.ts",
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx",
-    "next.config.js"
+    "**/*.tsx"
   ],
-  "exclude": ["dist", ".next", "out", "next.config.js", "node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

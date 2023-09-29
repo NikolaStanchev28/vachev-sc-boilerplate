@@ -1,8 +1,8 @@
 import "styled-components";
 import {
-  BreakpointsValuesType,
-  MaxWidthBreakpointsType,
-  MinWidthBreakpointsType,
+  BreakpointValues,
+  MaxWidthBreakpoints,
+  MinWidthBreakpoints,
   TypographyStylesProps
 } from "styles";
 
@@ -12,9 +12,9 @@ declare module "styled-components" {
   type Gradients = "blueToPurple";
 
   type Breakpoints = {
-    max: MaxWidthBreakpointsType;
-    min: MinWidthBreakpointsType;
-    val: BreakpointsValuesType;
+    max: MaxWidthBreakpoints;
+    min: MinWidthBreakpoints;
+    val: BreakpointValues;
   };
 
   export interface DefaultTheme {

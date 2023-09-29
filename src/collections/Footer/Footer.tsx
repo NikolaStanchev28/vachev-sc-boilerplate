@@ -1,5 +1,4 @@
 import * as S from "./elements";
-import type { HTMLFooterProps } from "types";
 
 export interface FooterProps extends HTMLFooterProps {}
 

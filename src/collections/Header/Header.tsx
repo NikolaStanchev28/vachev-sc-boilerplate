@@ -1,5 +1,4 @@
 import * as S from "./elements";
-import type { HTMLHeaderProps } from "types";
 
 export interface HeaderProps extends HTMLHeaderProps {}
 

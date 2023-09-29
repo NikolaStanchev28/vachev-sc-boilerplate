@@ -1,19 +1,20 @@
-import { BreakpointsValuesType, minWidth, maxWidth } from "styles";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
+import { BreakpointValues, minWidth, maxWidth } from "styles";
+import { kv } from "utils";
+
+type MediaQueryType = "min" | "max";
+type MediaQueryBreakpoint = keyof BreakpointValues;
 
 /**
- * @example const [isMediumScreenDevice] = useMediaQuery({ type: "max", breakpoint: "M" });
+ * @example const { maxM } = useMediaQuery({ type: "max", breakpoint: "M" });
  */
-export const useMediaQuery = (query: {
-  type: "min" | "max";
-  breakpoint: keyof BreakpointsValuesType;
+export const useMediaQuery = <T extends MediaQueryType, B extends MediaQueryBreakpoint>(query: {
+  type: T;
+  breakpoint: B;
 }) => {
   const [breakpointMatched, setBreakpointMatched] = useState(false);
 
-  const mediaQuery = useMemo(
-    () => (query.type === "max" ? maxWidth[query.breakpoint] : minWidth[query.breakpoint]),
-    [query]
-  );
+  const mediaQuery = query.type === "max" ? maxWidth[query.breakpoint] : minWidth[query.breakpoint];
 
   useEffect(() => {
     const mediaQueryHandler = (event: MediaQueryListEvent) => {
@@ -31,5 +32,5 @@ export const useMediaQuery = (query: {
     };
   }, [mediaQuery]);
 
-  return [breakpointMatched];
+  return kv(`${query.type}${query.breakpoint}`, breakpointMatched);
 };
