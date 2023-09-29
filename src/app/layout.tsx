@@ -1,3 +1,4 @@
+import { StartIcon } from "assets";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -16,7 +17,10 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang='en'>
       <body className={inter.className}>
         <main className='flex max-w-[1440px] min-h-screen mx-auto flex-col px-3 lg:px-6 '>
-          <header>header</header>
+          <header>
+            header
+            <StartIcon />
+          </header>
           <StyledComponentsRegistry>
             <ThemeProvider>{children}</ThemeProvider>
           </StyledComponentsRegistry>
